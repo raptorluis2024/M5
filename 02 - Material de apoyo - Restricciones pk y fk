@@ -1,0 +1,36 @@
+-- Crear la tabla Autores
+CREATE TABLE Autores (
+    AutorID INT PRIMARY KEY,
+    NombreAutor VARCHAR(50) NOT NULL
+);
+
+-- Crear la tabla Libros
+CREATE TABLE Libros (
+    LibroID INT PRIMARY KEY,
+    Titulo VARCHAR(100) NOT NULL,
+    AutorID INT,
+    FOREIGN KEY (AutorID) REFERENCES Autores(AutorID)
+);
+
+-- Inserts adicionales para la tabla Autores
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (2, 'Gabriel García Márquez');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (3, 'J.K. Rowling');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (4, 'George Orwell');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (5, 'Jane Austen');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (6, 'Mark Twain');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (7, 'Ernest Hemingway');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (8, 'F. Scott Fitzgerald');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (9, 'Leo Tolstoy');
+INSERT INTO Autores (AutorID, NombreAutor) VALUES (10, 'Homero');
+
+-- Inserts adicionales para la tabla Libros
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (102, 'Cien Años de Soledad', 2);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (103, 'Harry Potter y la Piedra Filosofal', 3);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (104, '1984', 4);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (105, 'Orgullo y Prejuicio', 5);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (106, 'Las Aventuras de Tom Sawyer', 6);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (107, 'El Viejo y el Mar', 7);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (108, 'El Gran Gatsby', 8);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (109, 'Guerra y Paz', 9);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (110, 'La Ilíada', 10);
+INSERT INTO Libros (LibroID, Titulo, AutorID) VALUES (111, 'Don Quijote de la Mancha', 1);
