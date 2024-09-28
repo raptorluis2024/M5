@@ -31,11 +31,13 @@ select count(*) as filas from inscritos
 
 --¿Cuántos inscritos hay en total?
 select sum(cantidad) as total_inscritos from inscritos
+select sum(cantidad) as total_inscritos from inscritos where fuente = 'Blog'
+select sum(cantidad) as total_inscritos from inscritos where fuente = 'Página'
 
 ---¿Cuál o cuáles son los registros de mayor antigüedad?
 select * from inscritos
 where fecha = (select min(fecha) from inscritos )
-
+and fuente = 'Página'
 ---¿Cuántos inscritos hay por día? 
 --- (entendiendo un día como una fecha distinta de ahora en adelante)
 SELECT fecha, SUM (cantidad) AS inscritos_por_dia
