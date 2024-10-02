@@ -55,9 +55,26 @@ alter table phones
 	alter column peso set not null,
 	alter column dimensiones set not null
 
-alter table phones 
-	add column id1 serial 
 
+truncate phones
+select * from phones
+
+alter table phones 
+drop column id
+
+alter table phones
+   alter column id type int 
+
+CREATE SEQUENCE secuencia_phones;
+
+alter table phones 
+	alter column id SET DEFAULT nextval('secuencia_phones'::regclass);
+
+insert into phones (modelo, mac_address, fecha_fabricacion, memoria_interna,
+memoria_ram, peso, dimensiones )
+values ('NUEVITO', '00:07', '2021-10-10', '100gb', '6gb', 120, '{}')
+
+---https://dba.stackexchange.com/questions/78732/change-existing-column-in-pg-to-auto-incremental-primary-key
 
 	
 	
