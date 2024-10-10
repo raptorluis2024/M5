@@ -26,7 +26,7 @@ create table medico (
 create table consulta (
 	fecha_atencion date,
 	hora_atencion time,
-	box int,
+	box int not null,
 	primary key (fecha_atencion, hora_atencion, box),
 	rut_paciente varchar(10),
 	rut_medico varchar(10),
@@ -44,12 +44,14 @@ create table licencia(
     codigo int primary key,
     fecha_inicio date not null,
     fecha_termino date not null,
-    fecha_atencion date not null,
-	hora_atencion time not null,
+    fecha_atencion date,
+	hora_atencion time,
 	box int not null,
-	foreign key(fecha_atencion, hora_atencion,
-	box) references consulta(fecha_atencion,
-	hora_atencion, box)
-	
+	foreign key(fecha_atencion) 
+	references consulta(fecha_atencion),
+	foreign key(hora_atencion) 
+	references consulta(hora_atencion),
+	foreign key(box) 
+	references consulta(box)	
 );
 
